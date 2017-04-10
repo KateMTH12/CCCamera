@@ -15,7 +15,7 @@ var rainbow = false;
 var plain = true;
 var multi = false;
 var counter2 = 0;
-
+var click;
 
 function setup() {
   createCanvas(640, 500);
@@ -23,6 +23,7 @@ function setup() {
   video = createCapture(VIDEO);
   img = createImage(640, 480);
   img.loadPixels();
+  click = loadSound('click.wav');
 }
 
 function draw() {
@@ -117,6 +118,7 @@ function draw() {
 
 function mouseReleased() {
   if (mouseY < 480) {
+    click.play();
     if (multi === true) {
       pics.push(video);
     } else {
